@@ -50,7 +50,7 @@ If you fork the project, you'll need to change the git link
 
     oc new-app \
       -n dotnet-cafe-demo \
-      --name=dotnet-cafe-kitchen dotnet:3.1~https://github.com/vincent-tsugranes/dotnet-cafe-demo.git \
+      --name=dotnet-cafe-kitchen dotnet:3.1~https://github.com/quivsoth/dotnet-cafe-demo.git \
       --build-env DOTNET_STARTUP_PROJECT=dotnet.cafe.kitchen/dotnet.cafe.kitchen.csproj \
       -e DOTNET_CAFE_KAFKA_BOOTSTRAP=cafe-cluster-kafka-bootstrap:9092 \
       -l app=dotnet-cafe-module
@@ -60,7 +60,7 @@ If you fork the project, you'll need to change the git link
 
     oc new-app \
       -n dotnet-cafe-demo \
-      --name=dotnet-cafe-barista dotnet:3.1~https://github.com/vincent-tsugranes/dotnet-cafe-demo.git \
+      --name=dotnet-cafe-barista dotnet:3.1~https://github.com/quivsoth/dotnet-cafe-demo.git \
       --build-env DOTNET_STARTUP_PROJECT=dotnet.cafe.barista/dotnet.cafe.barista.csproj \
       -e DOTNET_CAFE_KAFKA_BOOTSTRAP=cafe-cluster-kafka-bootstrap:9092 \
       -l app=dotnet-cafe-module
@@ -71,7 +71,7 @@ If you fork the project, you'll need to change the git link
  
      oc new-app \
        -n dotnet-cafe-demo \
-       --name=dotnet-cafe-counter dotnet:3.1~https://github.com/vincent-tsugranes/dotnet-cafe-demo.git \
+       --name=dotnet-cafe-counter dotnet:3.1~https://github.com/quivsoth/dotnet-cafe-demo.git \
        --build-env DOTNET_STARTUP_PROJECT=dotnet.cafe.counter/dotnet.cafe.counter.csproj \
        -e DOTNET_CAFE_MONGODB=mongodb://cafe-user:redhat-20@dotnet-cafe-mongodb-service:27017/cafedb \
        -e DOTNET_CAFE_KAFKA_BOOTSTRAP=cafe-cluster-kafka-bootstrap:9092 \
@@ -82,7 +82,7 @@ If you fork the project, you'll need to change the git link
   
       oc new-app \
         -n dotnet-cafe-demo \
-        --name=dotnet-cafe-web dotnet:3.1~https://github.com/vincent-tsugranes/dotnet-cafe-demo.git \
+        --name=dotnet-cafe-web dotnet:3.1~https://github.com/quivsoth/dotnet-cafe-demo.git \
         --build-env DOTNET_STARTUP_PROJECT=dotnet.cafe.web/dotnet.cafe.web.csproj \
         -e DOTNET_CAFE_KAFKA_BOOTSTRAP=cafe-cluster-kafka-bootstrap:9092 \
         -l app=dotnet-cafe-module
@@ -99,7 +99,7 @@ If you fork the project, you'll need to change the git link
                   
   #Add annotations for pretty topology display
   
-  <img src="https://github.com/vincent-tsugranes/dotnet-cafe-demo/blob/master/support/images/dotnet-cafe-topology.png?raw=true"></img>
+  <img src="https://github.com/quivsoth/dotnet-cafe-demo/blob/master/support/images/dotnet-cafe-topology.png?raw=true"></img>
    
       oc annotate deployment -l app=dotnet-cafe-module app.openshift.io/connects-to='["cafe-cluster-kafka",{"apiVersion":"apps/v1","kind":"StatefulSet","name":"cafe-cluster-kafka"}]'
       oc annotate deployment dotnet-cafe-counter app.openshift.io/connects-to='["cafe-cluster-kafka",{"apiVersion":"apps/v1","kind":"StatefulSet","name":"cafe-cluster-kafka"},{"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","name":"dotnet-cafe-mongodb-service"}]' --overwrite
